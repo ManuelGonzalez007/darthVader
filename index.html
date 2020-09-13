@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Darth Vader</title>
+    </head>
+
+    <body>
+    	<style>
+
+    		body {
+    			background-color: black;
+    		}
+
+            h1 {
+            	text-align: center;
+            	color: white;
+            	font-size: 40px;
+            }
+
+            div {
+            	color: white;
+                font-size: 20px;
+                font-weight: bold;
+                font-style: italic;
+                font-family: monospace;
+                text-align: center;
+            }
+
+            span {
+            	color: red;
+                font-size: 30px;
+                font-weight: bold;
+                font-style: italic;
+                font-family: monospace;
+                text-align: center;
+            }
+			
+			img {
+            	display: block;
+            	margin: auto;
+            }
+
+            img:hover {
+            	cursor: pointer;
+            }
+
+
+            button:hover {
+            	cursor: pointer;
+            }
+            
+
+		</style>
+
+		<h1>Touch Darth Vader</h1>
+
+		<audio id="myAudio">
+			<source src="audio.mp3" type="audio/mpeg">
+		</audio>
+
+
+				
+		<button id="playButton" onclick="playAudio()" type="button">Play</button>
+		<button onclick="stopAudio()" type="button">Stop</button> 
+        
+
+
+    	 <img id ="Vader" onclick="touchImage(event)" src="darthVader.png" width="300px" alt="Image of Darth Vader">
+
+    	 <div id="message"></div>
+
+    	 <script>
+
+			function touchImage(e) {
+    			document.getElementById("message").innerHTML = "You've touched Darth Vader in <br> x = " + e.clientX +"<br>  y = " + e.clientY + "<br><span>The Dark Side is strong in you, my friend</span>";
+            }
+
+        	
+        	var x = document.getElementById("myAudio"); 
+
+			function playAudio() { 
+				if(x.paused) {
+					x.play()
+					playButton.innerHTML = "Pause"
+				} else {
+			    	x.pause()
+			    	playButton.innerHTML = "Play"
+			    }
+			} 
+		
+		
+
+			function stopAudio() { 
+			  x.pause();
+			  x.currentTime = 0;
+			  playButton.innerHTML = "Play" 
+			} 
+
+			x.onended = function() {
+				playButton.innerHTML = "Play"
+			};
+
+        		
+    	 	
+    	 </script>
+
+    </body>
+
+</html>
+
